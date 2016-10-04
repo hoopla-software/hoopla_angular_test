@@ -1,0 +1,18 @@
+<div class="row" ng-init="populateUserMetrics()">
+  <div class="col-xs-6" style="width:400px">
+    <h2>{{metric}}</h2>
+    <table class="table-hover table-condensed">
+      <tr ng-repeat="user in users.indivMetrics | orderBy:'-value' track by $index">
+        <td>{{user.name}}</td>
+        <td ng-hide="editing === $index + 'z'" ng-click="editItem({{user}}, $index)">{{user.value}}</td>
+        <td ng-show="editing === $index + 'z'"><input placeholder="{{user.value}}" ng-model="value"></td>
+        <td ng-show="editing === $index + 'z'">  <button class="btn-primary" ng-click="ifNoValueCreateValue(user, value)">Create</button></td>
+        <td ng-show="editing === $index + 'z'">  <button class="btn-primary" ng-click="submit(user, value)">Edit</button></td>
+        <td ng-show="editing === $index + 'z'">  <button class="btn-primary" ng-click="cancel(user)">Cancel</button></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<br>
+<a href="/"><button class="btn-primary">List of Metrics</button></a>

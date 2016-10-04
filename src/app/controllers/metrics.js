@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hooplaAngularTest')
-  .controller('MetricsCtrl', function ($scope, $window, Metric, Globals) {
+  .controller('MetricsCtrl', function ($scope, Metric, Globals) {
     var metrics = [];
     $scope.redirect = redirect;
     $scope.grabNames = grabNames;
